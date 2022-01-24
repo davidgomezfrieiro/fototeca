@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Formulario Nueva Foto</title>
+</head>
+<body style="display: flex; flex-direction: column; justify-content: center;">
+    <header>
+        <h1>Fototeca</h1>
+    </header>
+    <nav>
+        <h4><a href="/">Mostrar imágenes</a></h4>
+        <h4><a href="/anadir">Añadir fotos</a></h4>
+    </nav>
+    <!--
+        El usuario debe introducir un campo para poner un título en la imagen. Este campo puede tener como máximo 10 caracteres; y sólo puede incluir números, letras o un guión bajo 0.75 puntos
+El usuario debe introducir una nueva URL en un formulario. Esta URL debe ser válida 0.75 puntos
+También es necesario introducir una fecha. Esta fecha es arbitraria. Por tanto, el usuario puede seleccionar el día que quiera. El usuario debe poder escribir la fecha de la imagen, o bien seleccionarla de un calendario. Importante: es suficiente con seleccionar el día de la foto, no es necesario introducir la hora ni los minutos. 0.75 puntos
+El formulario envía los datos al servidor mediante el método POST. 0.25 puntos
+    -->
+    <form action="/anadir" method="post" style="width: fit-content;">
+        <div>
+            <h4>Añadir nueva imagen</h4>
+            <div >
+                <label for="title">Título</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div >
+                <label for="url">Url de la imagen</label>
+                <input type="url" name="url" id="url">
+            </div>
+            <div>
+                <input type="date" name="date" id="date">
+            </div>
+            <input type="submit" name="submit" id="submit" value="Añadir foto" style="width: max-content;">
+        </div>
+    </form>
+</body>
+</html>
