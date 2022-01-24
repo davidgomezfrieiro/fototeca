@@ -29,15 +29,15 @@ El formulario envía los datos al servidor mediante el método POST. 0.25 puntos
                 <h4>Añadir nueva imagen</h4>
                 <div >
                     <label for="title">Título</label>
-                    <input type="text" name="title" id="title">
+                    <input type="text" name="title" id="title" maxlength="10" required>
                 </div>
                 <div >
                     <label for="url">Url de la imagen</label>
-                    <input type="url" name="url" id="url">
+                    <input type="url" name="url" id="url" required>
                 </div>
                 <div>
                     <label for="date">Fecha</label>
-                    <input type="date" name="date" id="date">
+                    <input type="date" name="date" id="date" required>
                 </div>
                 <input type="submit" name="submit" id="submit" value="Añadir foto" style="width: max-content;">
             </div>

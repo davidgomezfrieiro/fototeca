@@ -47,6 +47,17 @@ async function colorDominante(imageURL) {
 };
 // endpoint recibir peticiones de tipo POST a '/nueva-foto'; y de momento, simplemente hacer un console.log del objeto req.body
 app.post('/anadir', async (req, res) => {
+    // Antes de actualizar la base de datos vamos a comprobar si la foto ya existe
+    // Una foto ya existe si hay un obejto en fotos que tenga la url que pretendemos insertar
+    let fotoExiste = existeFotoBD(req.body.url)
+    if (fotoExiste) {
+        //Devolver al usuario a la pagina del formulario indicando que la url ya existe
+        res.status(409).render( "form", {
+            error: `La URL ${req.body.url} ya existe`
+            
+        })
+        return;
+    }
     // 1 Crear un nuevo objeto que almacene los campos de la foto
     //console.log(req.body);
     let colorMain = await colorDominante(req.body.url)
@@ -57,18 +68,7 @@ app.post('/anadir', async (req, res) => {
         color: colorMain
     }
     console.log(foto);
-    // Antes de actualizar la base de datos vamos a comprobar si la foto ya existe
-    // Una foto ya existe si hay un obejto en fotos que tenga la url que pretendemos insertar
     
-    let fotoExiste = existeFotoBD(req.body.url)
-    if (fotoExiste) {
-        //Devolver al usuario a la pagina del formulario indicando que la url ya existe
-        res.status(409).render( "form", {
-            error: `La URL ${req.body.url} ya existe`
-            
-        })
-        return;
-    }
     
     
     // 2 Añadir el objeto al array fotos

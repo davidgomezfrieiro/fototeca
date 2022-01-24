@@ -24,10 +24,6 @@ h1 {
     font-size: 60px;
 }
 
-nav {
-    background-color: white;
-}
-
 nav a {
     color: black;
     margin: 0;
@@ -52,6 +48,7 @@ h4 {
 }
 
 nav {
+    background-color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
